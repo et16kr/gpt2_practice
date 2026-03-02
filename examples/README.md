@@ -24,3 +24,4 @@ python3 examples/cpp_cuda_extension/demo.py
 - `cpp_cuda_extension` builds a C++ extension at runtime.
 - If CUDA is available and a CUDA toolkit is installed, it also builds and runs a CUDA kernel.
 - If CUDA is not available, the sample still runs in CPU mode.
+- You can use `examples/cpp_cuda_extension/Makefile` (`make build`, `make run`, `make run-cpu`).
