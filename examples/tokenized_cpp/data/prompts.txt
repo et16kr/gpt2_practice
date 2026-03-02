@@ -1,0 +1,61 @@
+# Format: <TYPE>|<TEXT>
+# TYPE: S = statement, Q = question
+# Short statements
+S|The quick brown fox jumps over the lazy dog.
+S|Today is a good day to debug a model.
+S|Small models are easier to inspect by hand.
+
+# Technical statements
+S|A transformer block applies attention and then an MLP with residual connections.
+S|Gradient descent updates parameters in the direction that reduces loss.
+S|Tokenization converts raw text into integer token IDs.
+S|Layer normalization stabilizes activations by normalizing each token vector.
+S|Causal masking prevents a position from attending to future tokens.
+S|In practice, model quality improves when data quality is high.
+S|A GPU runs many lightweight threads in parallel.
+S|C++ can provide lower-level control over memory and performance.
+
+# General knowledge / mixed domain
+S|The Eiffel Tower is located in Paris.
+S|Water boils at one hundred degrees Celsius at sea level.
+S|Seoul and Busan are major cities in South Korea.
+S|If input quality is poor, output quality often drops.
+
+# Longer statements
+S|When we build a language model, we usually tokenize the corpus first, pack tokens into blocks, and train the model to predict the next token.
+S|For CUDA optimization, memory coalescing and minimizing global memory traffic can be as important as raw arithmetic throughput.
+
+# Multilingual statements
+S|파이썬에서 전처리한 데이터를 C++ 프로그램이 읽어서 사용할 수 있습니다.
+S|토큰 ID 시퀀스는 모델 입력으로 바로 사용할 수 있습니다.
+S|긴 문장을 짧은 블록으로 자르면 학습 배치를 만들기 쉬워집니다.
+S|모델 추론 속도는 연산량과 메모리 대역폭의 영향을 동시에 받습니다.
+
+# Short questions
+Q|What is attention?
+Q|Why do we need positional embeddings?
+Q|Is greedy decoding always the best choice?
+
+# Technical questions
+Q|What is the main difference between self-attention and convolution?
+Q|Why do we divide attention scores by the square root of head dimension?
+Q|How does a residual connection help gradient flow in deep networks?
+Q|What happens if we remove positional embeddings from GPT-style models?
+Q|How can we build next-token training pairs from a token sequence?
+Q|Which is faster for heavy loops, Python or C++?
+Q|What is the purpose of an end-of-sequence token?
+Q|Can we use a tokenizer without loading a full neural network model?
+Q|How should we choose a block size for language-model training?
+
+# Reasoning / applied questions
+Q|If two prompts differ by one token, how can their generated continuations diverge?
+Q|When should we truncate long documents versus split them into multiple training samples?
+Q|What trade-offs appear when we increase context length?
+Q|How do we verify that a causal mask is implemented correctly?
+Q|Which profiling metrics are most useful before writing a custom CUDA kernel?
+
+# Multilingual questions
+Q|문장 길이가 서로 다를 때 패딩을 어떻게 처리해야 하나요?
+Q|한국어 문장을 GPT-2 토크나이저에 넣으면 어떤 일이 일어날까요?
+Q|학습 데이터에 숫자와 특수문자가 많으면 토크나이저 분포가 어떻게 달라질까요?
+Q|C++에서 토큰 파일을 읽을 때 파싱 에러를 줄이려면 어떤 형식을 쓰는 게 좋을까요?
