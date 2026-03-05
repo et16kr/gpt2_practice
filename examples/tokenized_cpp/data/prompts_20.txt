@@ -1,0 +1,20 @@
+01. The weather is calm today, so I will focus on model debugging.
+02. A small batch helps me inspect each token prediction step by step.
+03. When attention scores explode, check scaling and mask logic first.
+04. Tokenization quality can strongly affect downstream generation quality.
+05. I will trace one layer at a time and compare every tensor shape.
+06. Gradient flow becomes easier to analyze with clear residual paths.
+07. If a tensor is misaligned, the next matrix multiply fails immediately.
+08. Profiling before optimization prevents wasted effort on the wrong bottleneck.
+09. The GPU kernel is fast only when memory access is also efficient.
+10. Consistent preprocessing makes training and inference behavior easier to match.
+11. Today I will build GPT2 input tensors first and verify each stage.
+12. Saving token IDs and embeddings together makes debugging much easier.
+13. When sentence lengths differ, padding masks must be handled correctly.
+14. Position embeddings help the model understand token order in a sequence.
+15. The initial input x0 is the sum of token and position embeddings.
+16. Saving tensors before layer normalization simplifies intermediate checks.
+17. Documenting weight application order improves reproducible experiments.
+18. Sentences with numbers and symbols also test tokenizer behavior: 42%!?
+19. A bilingual prompt set is useful for stress-testing byte-level BPE.
+20. After building inputs, I can apply wte, wpe, and each block weights.

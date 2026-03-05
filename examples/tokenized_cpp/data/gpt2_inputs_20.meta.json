@@ -1,0 +1,47 @@
+{
+  "num_samples": 20,
+  "max_length": 64,
+  "n_embd": 768,
+  "eos_token_id": 50256,
+  "files": {
+    "prompts": "/home/et16/aps/inference_practice/examples/tokenized_cpp/data/prompts_20.txt",
+    "input_safetensors": "/home/et16/aps/inference_practice/examples/tokenized_cpp/data/gpt2_inputs_20.safetensors"
+  },
+  "arrays": {
+    "input_ids": [
+      20,
+      64
+    ],
+    "attention_mask": [
+      20,
+      64
+    ],
+    "position_ids": [
+      20,
+      64
+    ],
+    "token_lengths": [
+      20
+    ],
+    "token_embeddings": [
+      20,
+      64,
+      768
+    ],
+    "position_embeddings": [
+      20,
+      64,
+      768
+    ],
+    "x0": [
+      20,
+      64,
+      768
+    ],
+    "x0_masked": [
+      20,
+      64,
+      768
+    ]
+  }
+}
