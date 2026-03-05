@@ -26,10 +26,6 @@ struct Tensor {
     return s;
   }
   Tensor() {};
-  Tensor(const Tensor&) = delete;
-  Tensor& operator=(const Tensor&) = delete;
-  Tensor(Tensor&& other) noexcept;
-  Tensor& operator=(Tensor&& other) noexcept;
   Tensor(const std::vector<size_t> &shape_, float *buf_);
   ~Tensor();
 };

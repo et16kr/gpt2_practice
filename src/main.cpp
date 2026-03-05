@@ -2,7 +2,7 @@
 
 int main() {
   const char* fname = "/home/et16/aps/inference_practice/gpt2/model.safetensors";
-  DataLoader data_loader = DataLoader::LoadData(fname);
+  DataLoader data_loader(fname);
 
   return 0;
 }

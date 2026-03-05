@@ -6,9 +6,8 @@
 
 class DataLoader {
 public:
-    DataLoader() {};
+    DataLoader(const char* fname);
     Tensor GetTensor(std::string key);
-    static DataLoader LoadData(const char* fname);
 private:
     std::unordered_map<std::string, Tensor> map;
 };
