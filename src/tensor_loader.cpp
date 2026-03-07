@@ -5,11 +5,11 @@
 #include <cstdint>
 #include <iostream>
 #include <nlohmann/json.hpp>
-#include "data_loader.h"
+#include "tensor_loader.h"
 
 using json = nlohmann::json;
 
-DataLoader::DataLoader(const char* fname) {
+TensorLoader::TensorLoader(const char* fname) {
     int fd = open(fname, O_RDONLY);
 
     struct stat st;
@@ -37,14 +37,36 @@ DataLoader::DataLoader(const char* fname) {
             }
             size_t tensor_size = offs[1] - offs[0];
             float * buf = (float*)malloc(tensor_size);
-            ret = pread(fd, buf, tensor_size, offs[0]);
+            ret = pread(fd, buf, tensor_size, offs[0]+8+json_size);
             if (ret < 0 || static_cast<size_t>(ret) != tensor_size) {
                 std::cout << "read: " << ret << " / " << tensor_size << "\n";
-            }
-            map.try_emplace(name, shape, buf);
+            }/*
+            if (name == "input_ids") {
+                for (int i = 0 ; i < shape[0] ; i++) {
+                    std::cout << "[" << i << "] " << buf[i*shape[1]];
+                    for (int j = 0 ; j < shape[1] ; j++) {
+                        std::cout << ", " << buf[i*shape[1]+j];
+                    }
+                    std::cout << std::endl;
+                }
+            }*/
+            map[name] = std::make_unique<Tensor>(shape, buf);
             free(buf);
         }
     }
     free(json_buf);
     close(fd);
+}
+
+void TensorLoader::Elements() {
+    for (auto & [key, value] : map) {
+        auto shape = value->shape;
+        std::cout << key <<" [ " << shape[0] ;
+        
+        for (int i = 1; i < 5 ; i++) {
+            if (shape[i] <= 1) break;
+            std::cout << ", " << shape[i] ;
+        }
+        std::cout << " ]" << std::endl;
+    }
 }

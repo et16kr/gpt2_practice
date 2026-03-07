@@ -26,6 +26,10 @@ struct Tensor {
     return s;
   }
   Tensor() {};
+  Tensor(const std::vector<size_t> &shape_);
   Tensor(const std::vector<size_t> &shape_, float *buf_);
   ~Tensor();
+  Tensor(const Tensor&) = delete;
+  Tensor& operator=(const Tensor&) = delete;
+  size_t AllocTensor(const std::vector<size_t> &shape_);
 };
